@@ -1,0 +1,43 @@
+App\Entity\Location:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [city, country]
+            message: 'Location already exists.'
+            groups: [new, edit]
+    properties:
+        city:
+            - NotBlank:
+                message: '[Creating] Please enter the city name.'
+                groups: [new]
+            - NotBlank:
+                message: '[Editing] City name cannot be empty.'
+                groups: [edit]
+            - Length:
+                min: 2
+                max: 255
+                minMessage: 'City name must have at least {{ limit }} characters.'
+                groups: [new, edit]
+        country:
+            - NotBlank:
+                message: 'Please select a country.'
+                groups: [new, edit]
+            - Country:
+                groups: [new, edit]
+        latitude:
+            - NotBlank:
+                message: 'Please enter the latitude.'
+                groups: [new, edit]
+            - Range:
+                min: -90
+                max: 90
+                notInRangeMessage: 'Latitude must be between {{ min }} and {{ max }}.'
+                groups: [new, edit]
+        longitude:
+            - NotBlank:
+                message: 'Please enter the longitude.'
+                groups: [new, edit]
+            - Range:
+                min: -180
+                max: 180
+                notInRangeMessage: 'Longitude must be between {{ min }} and {{ max }}.'
+                groups: [new, edit]

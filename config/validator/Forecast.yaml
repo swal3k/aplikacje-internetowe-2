@@ -1,0 +1,58 @@
+App\Entity\Forecast:
+    properties:
+        location:
+            - NotNull:
+                message: 'Choose a location.'
+                groups: [new, edit]
+        date:
+            - NotNull:
+                message: 'Enter the forecast date.'
+                groups: [new, edit]
+            - GreaterThanOrEqual:
+                value: today
+                message: '[Creation] You can only add a new forecast for today or future dates.'
+                groups: [new]
+        temperature_celsius:
+            - NotBlank:
+                message: 'Enter the temperature.'
+                groups: [new, edit]
+            - Range:
+                min: -60
+                max: 60
+                notInRangeMessage: 'The temperature must be between {{ min }} and {{ max }} °C.'
+                groups: [new, edit]
+        humidity:
+            - NotBlank:
+                groups: [new, edit]
+            - Range:
+                min: 0
+                max: 100
+                notInRangeMessage: 'Humidity must be between {{ min }}–{{ max }}%.'
+                groups: [new, edit]
+        uv_index:
+            - NotBlank:
+                groups: [new, edit]
+            - Range:
+                min: 0
+                max: 15
+                groups: [new, edit]
+        wind_speed:
+            - NotBlank:
+                groups: [new, edit]
+            - PositiveOrZero:
+                message: 'Wind speed cannot be negative.'
+                groups: [new, edit]
+        precipitation:
+            - NotBlank:
+                groups: [new, edit]
+            - PositiveOrZero:
+                message: 'Precipitation cannot be negative.'
+                groups: [new, edit]
+        pressure:
+            - NotBlank:
+                groups: [new, edit]
+            - Range:
+                min: 870
+                max: 1085
+                notInRangeMessage: 'Pressure must be between {{ min }}–{{ max }} hPa.'
+                groups: [new, edit]

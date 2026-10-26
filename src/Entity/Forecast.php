@@ -61,7 +61,7 @@ class Forecast
         return $this->date;
     }
 
-    public function setDate(\DateTime $date): static
+    public function setDate(?\DateTime $date): static
     {
         $this->date = $date;
 
@@ -73,7 +73,7 @@ class Forecast
         return $this->temperature_celsius;
     }
 
-    public function setTemperatureCelsius(string $temperature_celsius): static
+    public function setTemperatureCelsius(?string $temperature_celsius): static
     {
         $this->temperature_celsius = $temperature_celsius;
 
@@ -85,7 +85,7 @@ class Forecast
         return $this->humidity;
     }
 
-    public function setHumidity(string $humidity): static
+    public function setHumidity(?string $humidity): static
     {
         $this->humidity = $humidity;
 
@@ -97,7 +97,7 @@ class Forecast
         return $this->uv_index;
     }
 
-    public function setUvIndex(int $uv_index): static
+    public function setUvIndex(?int $uv_index): static
     {
         $this->uv_index = $uv_index;
 
@@ -109,7 +109,7 @@ class Forecast
         return $this->wind_speed;
     }
 
-    public function setWindSpeed(string $wind_speed): static
+    public function setWindSpeed(?string $wind_speed): static
     {
         $this->wind_speed = $wind_speed;
 
@@ -121,7 +121,7 @@ class Forecast
         return $this->precipitation;
     }
 
-    public function setPrecipitation(string $precipitation): static
+    public function setPrecipitation(?string $precipitation): static
     {
         $this->precipitation = $precipitation;
 
@@ -133,7 +133,7 @@ class Forecast
         return $this->pressure;
     }
 
-    public function setPressure(int $pressure): static
+    public function setPressure(?int $pressure): static
     {
         $this->pressure = $pressure;
 
