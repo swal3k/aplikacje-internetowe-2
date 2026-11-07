@@ -26,6 +26,12 @@
                            href="{{ path('app_forecast_index') }}">Forecasts</a>
                     </li>
                 </ul>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <a href="{{ path('app_logout') }}">Logout</a>
+                {% else %}
+                    <a href="{{ path('app_login') }}">Login</a>
+                {% endif %}
+
             </div>
         </nav>
 

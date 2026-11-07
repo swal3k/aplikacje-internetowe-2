@@ -1,4 +1,4 @@
 {
-  "files.exclude": { "var": true},
+  "files.exclude": { "var": false},
   "search.exclude": { "var": true, "vendor": true }
 }
