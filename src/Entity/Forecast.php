@@ -80,6 +80,13 @@ class Forecast
         return $this;
     }
 
+    public function getFahrenheit(): ?float{
+        if (null === $this-> getTemperatureCelsius()){
+            return null;
+        }
+        return round((float) $this->getTemperatureCelsius() * 9 / 5 + 32, 2);
+    }
+
     public function getHumidity(): ?string
     {
         return $this->humidity;
